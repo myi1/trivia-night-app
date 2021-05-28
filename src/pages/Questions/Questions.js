@@ -38,7 +38,7 @@ export default class Questions extends Component {
     }
   }
 
-  updateQuestion = () => {
+  goNextQuestion = () => {
     this.setState({
       ...this.state,
       isUpdated: true,
@@ -80,9 +80,11 @@ export default class Questions extends Component {
 
   render() {
     const { questions, indexPos, showAnswer } = this.state;
-    console.log(questions);
+    console.log(questions.length);
+    console.log(indexPos);
     let answer;
-    let previousQuestioButton;
+    let previousQuestionButton;
+    let nextQuestionButton;
     if (questions.length === 0) {
       return <p>Loading Questions...</p>;
     }
@@ -98,22 +100,31 @@ export default class Questions extends Component {
       );
     }
     if (indexPos !== 0) {
-      previousQuestioButton = (
+      previousQuestionButton = (
         <button className='question__button' onClick={this.goPrevQuestion}>
           Previous Question
         </button>
       );
     }
+    if (indexPos < questions.length - 1) {
+      nextQuestionButton = (
+        <button className='question__button' onClick={this.goNextQuestion}>
+          Next Question
+        </button>
+      );
+    }
+
     return (
       <div className='question'>
         <h1 className='question__header'>Question</h1>
         <p className='question__body'>{questions[indexPos].question}</p>
         <h2 className='question__answer-header'>Answer</h2>
         {answer}
-        {previousQuestioButton}
-        <button className='question__button' onClick={this.updateQuestion}>
+        {previousQuestionButton}
+        {nextQuestionButton}
+        {/* <button className='question__button' onClick={this.goNextQuestion}>
           Next Question
-        </button>
+        </button> */}
       </div>
     );
   }
