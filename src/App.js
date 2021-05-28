@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Categories from "./pages/Categories/Categories";
 import Questions from "./pages/Questions/Questions";
+import "./App.scss"
 
 export default class App extends Component {
   render() {
@@ -13,9 +14,11 @@ export default class App extends Component {
             <Route exact path='/' component={Categories} />
             <Route path='/category/:id' component={Questions} />
           </Switch>
-          <Link className='app__button' to='/'>
-            Go Back to Category List
-          </Link>
+          <div className="footer">
+            <Link className='footer__button' to='/'>
+              🏠 Go Back to Category List 🏠
+            </Link>
+          </div>
         </Router>
       </div>
     );

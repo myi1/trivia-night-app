@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import './Categories.scss'
 
 export default class Categories extends Component {
   state = {
@@ -33,7 +34,7 @@ export default class Categories extends Component {
 
     return (
       <div className='categories'>
-        <h2 className='categories__header'>Choose A Category!</h2>
+        <h2 className='categories__header'>Choose a Category!</h2>
 
         {categories.map((category) => {
           return (
@@ -41,7 +42,7 @@ export default class Categories extends Component {
               className='categories__category'
               to={"/category/" + category.id}
               key={category.id}>
-              <p>{category.title}</p>
+              {category.title}
             </Link>
           );
         })}
