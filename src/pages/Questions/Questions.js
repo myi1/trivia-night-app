@@ -95,21 +95,21 @@ export default class Questions extends Component {
     } else {
       answer = (
         <button className='question__button' onClick={this.handleShowClick}>
-          Show Answer
+          👀 Show Answer
         </button>
       );
     }
     if (indexPos !== 0) {
       previousQuestionButton = (
         <button className='question__button' onClick={this.goPrevQuestion}>
-          Previous Question
+          👈 Previous Question
         </button>
       );
     }
     if (indexPos < questions.length - 1) {
       nextQuestionButton = (
         <button className='question__button' onClick={this.goNextQuestion}>
-          Next Question
+          👉 Next Question
         </button>
       );
     }
@@ -119,12 +119,11 @@ export default class Questions extends Component {
         <h1 className='question__header'>Question</h1>
         <p className='question__body'>{questions[indexPos].question}</p>
         <h2 className='question__answer-header'>Answer</h2>
+        <div className='question__button-container'>
         {answer}
-        {previousQuestionButton}
         {nextQuestionButton}
-        {/* <button className='question__button' onClick={this.goNextQuestion}>
-          Next Question
-        </button> */}
+        {previousQuestionButton}
+        </div>
       </div>
     );
   }
